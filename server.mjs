@@ -80,6 +80,27 @@ function sanitizeOutgoing(text) {
   const EDU_MSG = "Para agilizar o atendimento médico e mantermos o foco clínico, peço que responda apenas ao que foi perguntado. Obrigado(a).";
 
   app.post("/api/medico/chat", async (req, res) => {
+
+    // Enriquecimento do prompt com histórico do paciente, se autenticado
+    try{
+      const h = req.headers["authorization"]||"";
+      const t = h.startsWith("Bearer ") ? h.slice(7) : null;
+      if(t && patientTokens && patientTokens.get){
+        const cpf = patientTokens.get(t);
+        if(cpf){
+          const all = loadHistory ? loadHistory() : [];
+          const hist = (all||[]).filter(hh=>hh.cpf===cpf);
+          const resumo = summarizeHistoryForPrompt ? summarizeHistoryForPrompt(hist) : "";
+          req.body = req.body || {};
+          req.body.patientMeta = Object.assign({}, req.body.patientMeta||{}, { cpf });
+          if(resumo){
+            req.body.history = (req.body.history||[]);
+            req.body.history.unshift({ role:"system", content: "Contexto clínico do paciente (consultas anteriores):\n"+resumo });
+          }
+        }
+      }
+    }catch(e){ /* segue sem histórico */ }
+
     try {
       const { specialty = "Clínico Geral", history = [], patientMeta = {} } = req.body || {};
       const lastUser = (history||[]).slice().reverse().find(m=>m && m.role==="user");
@@ -92,7 +113,7 @@ function sanitizeOutgoing(text) {
 Regras obrigatórias:
 1) Antes de prescrever, pergunte e registre idade, peso e alergias. Sem esses dados, não prescreva (faça UMA pergunta por vez e aguarde).
 2) Formule apenas a hipótese diagnóstica principal (uma única), claramente justificada pelo que o paciente relatou.
-3) Emita CONDUTAS no formato de receita completa (texto plano), com dose por kg quando aplicável, dose máxima por dia, intervalo, duração e modo de uso. Se pediatria, use mg/kg e limite por faixa etária. Se gestante, lactante, idoso ou com comorbidades, ajuste e alerte. Coloque no final: "Assinatura digital: aguardando validação do médico humano".
+3) Emita CONDUTAS no formato de receita completa (texto plano), com dose por kg quando aplicável, dose máxima por dia, intervalo, duração e modo de uso. Se pediatria, use mg/kg e limite por faixa etária. Se gestante, lactante, idoso ou com comorbidades, ajuste e alerte. Coloque no final: "Assinatura digital: aguardando".
 4) Nunca oriente "procure um médico" como resposta padrão. Em vez disso, se houver sinais de alarme, liste-os e oriente a procurar urgência imediatamente.
 5) Solicitação de fotos: só peça foto se houver relato de lesão/trauma/ferida/pele. Para cefaleia recorrente (enxaqueca), primeiro investigue sinais de gravidade e pergunte sobre trauma. Somente se o paciente relatar lesão visível, então peça foto para avaliação da lesão.
 6) Em caso de pedido de TROCA DE RECEITA, sempre pergunte: a) por que usa esse medicamento, b) quais sintomas sentia na época, c) como está usando atualmente. Só então gere a nova receita, deixando claro que aguarda validação.
@@ -107,7 +128,7 @@ Hipótese diagnóstica principal: <texto curto>
 Receita:
 <itens da receita com dose, intervalo, duração e modo de uso>
 Orientações: <se houver>
-Assinatura digital: aguardando validação do médico humano
+Assinatura digital: aguardando
 [STATUS: aguardando receita]`.trim();
 
       // Coerção simples: garante formato [{role, content}]
@@ -210,14 +231,156 @@ Assinatura digital: aguardando validação do médico humano
     if(!doc) return res.status(404).json({ ok:false, error:"Não encontrado" });
     if(req.body?.conteudo) doc.conteudo = req.body.conteudo;
     doc.status = "aprovado";
-    res.json({ ok:true });
+    // Gera código de aprovação para apresentação na farmácia
+    const part1 = Math.random().toString(36).slice(2,10).toUpperCase();
+    const part2 = Math.random().toString(36).slice(2,6).toUpperCase();
+    const codeRaw = (part1 + part2).replace(/[^A-Z0-9]/g, "");
+    const code = codeRaw.slice(0, 8);
+    doc.approvalCode = code;
+    doc.approvedAt = new Date().toISOString();
+    res.json({ ok:true, approvalCode: code });
   });
 
-  app.post("/admin/docs/:id/reject", auth, (req,res)=>{
-    const id = Number(req.params.id);
-    const doc = docs.find(d=>d.id===id);
-    if(!doc) return res.status(404).json({ ok:false, error:"Não encontrado" });
-    doc.status = "rejeitado";
-    res.json({ ok:true });
-  });
+// ==================== PACIENTE: Autenticação (CPF+senha) e Histórico ====================
+// Persistência simples em JSON (adequado ao Replit; em Render é efêmero após deploy)
+import fs from "fs";
+import path from "path";
+const DATA_DIR = process.env.DATA_DIR || path.resolve(process.cwd(), "data");
+if(!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+const FILE_PATIENTS = path.join(DATA_DIR, "patients.json");
+const FILE_HISTORY  = path.join(DATA_DIR, "history.json");
 
+function readJSON(file){ try{ return JSON.parse(fs.readFileSync(file,'utf-8')); } catch{ return []; } }
+function writeJSON(file, data){ fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf-8'); }
+
+function sha256(str){ return crypto.createHash('sha256').update(String(str)).digest('hex'); }
+
+function loadPatients(){ return readJSON(FILE_PATIENTS); }
+function savePatients(arr){ writeJSON(FILE_PATIENTS, arr); }
+function loadHistory(){ return readJSON(FILE_HISTORY); }
+function saveHistory(arr){ writeJSON(FILE_HISTORY, arr); }
+
+// Estruturas: paciente: { cpf, nomeCompleto, passHash, createdAt }
+// Consulta: { id, cpf, specialty, messages, assistant, createdAt }
+
+const patientTokens = new Map(); // token -> cpf
+function makePatientToken(){ return "pt_" + Math.random().toString(36).slice(2) + Date.now().toString(36); }
+
+app.post("/auth/patient/register", (req,res)=>{
+  const { cpf="", nomeCompleto="", password="" } = req.body||{};
+  const cleanCPF = String(cpf).replace(/\D+/g,'');
+  if(!cleanCPF || !nomeCompleto || !password) return res.status(400).json({ ok:false, error:"Dados obrigatórios: cpf, nomeCompleto, password" });
+  const patients = loadPatients();
+  if(patients.find(p=>p.cpf===cleanCPF)){
+    return res.status(409).json({ ok:false, error:"CPF já cadastrado" });
+  }
+  const passHash = sha256(password);
+  const patient = { cpf: cleanCPF, nomeCompleto: String(nomeCompleto).trim(), passHash, createdAt: new Date().toISOString() };
+  patients.push(patient);
+  savePatients(patients);
+  const token = makePatientToken();
+  patientTokens.set(token, cleanCPF);
+  res.json({ ok:true, token, patient: { cpf: patient.cpf, nomeCompleto: patient.nomeCompleto } });
+});
+
+app.post("/auth/patient/login", (req,res)=>{
+  const { cpf="", password="" } = req.body||{};
+  const cleanCPF = String(cpf).replace(/\D+/g,'');
+  const patients = loadPatients();
+  const p = patients.find(x=>x.cpf===cleanCPF);
+  if(!p) return res.status(404).json({ ok:false, error:"Paciente não encontrado" });
+  if(sha256(password)!==p.passHash) return res.status(401).json({ ok:false, error:"Senha inválida" });
+  const token = makePatientToken();
+  patientTokens.set(token, cleanCPF);
+  res.json({ ok:true, token, patient: { cpf: p.cpf, nomeCompleto: p.nomeCompleto } });
+});
+
+function patientAuth(req,res,next){
+  const h = req.headers["authorization"]||"";
+  const t = h.startsWith("Bearer ") ? h.slice(7) : null;
+  if(!t) return res.status(401).json({ ok:false, error:"Sem token" });
+  const cpf = patientTokens.get(t);
+  if(!cpf) return res.status(401).json({ ok:false, error:"Token inválido" });
+  req.patientCPF = cpf;
+  next();
+}
+
+app.get("/auth/patient/me", patientAuth, (req,res)=>{
+  const patients = loadPatients();
+  const p = patients.find(x=>x.cpf===req.patientCPF);
+  if(!p) return res.status(404).json({ ok:false, error:"Paciente não encontrado" });
+  res.json({ ok:true, patient: { cpf: p.cpf, nomeCompleto: p.nomeCompleto } });
+});
+
+// Registrar consulta do paciente
+app.post("/patient/consultas", patientAuth, (req,res)=>{
+  const { specialty="Clínico Geral", messages=[], assistant="" } = req.body||{};
+  const history = loadHistory();
+  const id = Date.now();
+  history.push({ id, cpf: req.patientCPF, specialty, messages, assistant, createdAt: new Date().toISOString() });
+  saveHistory(history);
+  res.json({ ok:true, id });
+});
+
+
+// Documentos do paciente autenticado
+app.get("/patient/docs", patientAuth, (req,res)=>{
+  const clean = (s)=> String(s||"").replace(/\D+/g,"");
+  const my = docs.filter(d=> clean(d.pacienteCPF) === clean(req.patientCPF));
+  res.json({ ok:true, items: my });
+});
+// Histórico do paciente autenticado
+app.get("/patient/history", patientAuth, (req,res)=>{
+  const history = loadHistory().filter(h=>h.cpf===req.patientCPF).sort((a,b)=> (a.createdAt<b.createdAt?1:-1));
+  res.json({ ok:true, items: history });
+});
+
+// Busca por CPF ou nome (Admin)
+app.get("/admin/pacientes/search", auth, (req,res)=>{
+  const q = String(req.query.q||"").trim().toLowerCase();
+  const patients = loadPatients();
+  const items = !q ? [] : patients.filter(p=> p.cpf.includes(q.replace(/\D+/g,'')) || p.nomeCompleto.toLowerCase().includes(q));
+  res.json({ ok:true, items: items.map(p=>({ cpf:p.cpf, nomeCompleto:p.nomeCompleto })) });
+});
+
+// Histórico pelo CPF (Admin)
+app.get("/admin/historico", auth, (req,res)=>{
+  const cpf = String(req.query.cpf||"").replace(/\D+/g,'');
+  if(!cpf) return res.status(400).json({ ok:false, error:"Informe cpf" });
+  const history = loadHistory().filter(h=>h.cpf===cpf).sort((a,b)=> (a.createdAt<b.createdAt?1:-1));
+  res.json({ ok:true, items: history });
+});
+
+// Injeta histórico no prompt do médico quando disponível
+// Adiciona resumo breve das últimas 5 consultas do paciente para contexto
+function summarizeHistoryForPrompt(all){
+  const last = (all||[]).slice(-5);
+  return last.map((h,i)=>{
+    const resumo = String(h.assistant||"").slice(0,600).replace(/\s+/g,' ').trim();
+    return `#${i+1} [${h.createdAt}] ${h.specialty}: ${resumo}`;
+  }).join("\\n");
+}
+
+// Wrap no /api/medico/chat para buscar histórico quando CPF vier via Authorization do paciente
+const originalPost = app._router.stack.find(l=> l.route && l.route.path==="/api/medico/chat" && l.route.methods.post);
+if(originalPost){
+  // Nada a fazer: endpoint já existe. Vamos interceptar req.body em middleware anterior para enriquecer.
+  app.use("/api/medico/chat", (req,res,next)=>{
+    try{
+      const h = req.headers["authorization"]||"";
+      const t = h.startsWith("Bearer ") ? h.slice(7) : null;
+      const cpf = t ? patientTokens.get(t) : null;
+      if(cpf){
+        const hist = loadHistory().filter(hh=>hh.cpf===cpf);
+        req.body = req.body || {};
+        const resumo = summarizeHistoryForPrompt(hist);
+        req.body.patientMeta = Object.assign({}, req.body.patientMeta||{}, { cpf });
+        if(resumo){
+          req.body.history = (req.body.history||[]);
+          req.body.history.unshift({ role:"system", content: "Contexto clínico do paciente (consultas anteriores):\\n"+resumo });
+        }
+      }
+    }catch(e){ /* segue sem histórico se falhar */ }
+    next();
+  });
+}
