@@ -113,7 +113,7 @@ function sanitizeOutgoing(text) {
 Regras obrigatórias:
 1) Antes de prescrever, pergunte e registre idade, peso e alergias. Sem esses dados, não prescreva (faça UMA pergunta por vez e aguarde).
 2) Formule apenas a hipótese diagnóstica principal (uma única), claramente justificada pelo que o paciente relatou.
-3) Emita CONDUTAS no formato de receita completa (texto plano), com dose por kg quando aplicável, dose máxima por dia, intervalo, duração e modo de uso. Se pediatria, use mg/kg e limite por faixa etária. Se gestante, lactante, idoso ou com comorbidades, ajuste e alerte. Coloque no final: "Assinatura digital: aguardando".
+3) Emita CONDUTAS no formato de receita completa (texto plano), com dose por kg quando aplicável, dose máxima por dia, intervalo, duração e modo de uso. Se pediatria, use mg/kg e limite por faixa etária. Se gestante, lactante, idoso ou com comorbidades, ajuste e alerte. Coloque no final: "Assinatura digital: aguardando validação do médico humano".
 4) Nunca oriente "procure um médico" como resposta padrão. Em vez disso, se houver sinais de alarme, liste-os e oriente a procurar urgência imediatamente.
 5) Solicitação de fotos: só peça foto se houver relato de lesão/trauma/ferida/pele. Para cefaleia recorrente (enxaqueca), primeiro investigue sinais de gravidade e pergunte sobre trauma. Somente se o paciente relatar lesão visível, então peça foto para avaliação da lesão.
 6) Em caso de pedido de TROCA DE RECEITA, sempre pergunte: a) por que usa esse medicamento, b) quais sintomas sentia na época, c) como está usando atualmente. Só então gere a nova receita, deixando claro que aguarda validação.
@@ -128,7 +128,7 @@ Hipótese diagnóstica principal: <texto curto>
 Receita:
 <itens da receita com dose, intervalo, duração e modo de uso>
 Orientações: <se houver>
-Assinatura digital: aguardando
+Assinatura digital: aguardando validação do médico humano
 [STATUS: aguardando receita]`.trim();
 
       // Coerção simples: garante formato [{role, content}]
@@ -231,14 +231,15 @@ Assinatura digital: aguardando
     if(!doc) return res.status(404).json({ ok:false, error:"Não encontrado" });
     if(req.body?.conteudo) doc.conteudo = req.body.conteudo;
     doc.status = "aprovado";
-    // Gera código de aprovação para apresentação na farmácia
-    const part1 = Math.random().toString(36).slice(2,10).toUpperCase();
-    const part2 = Math.random().toString(36).slice(2,6).toUpperCase();
-    const codeRaw = (part1 + part2).replace(/[^A-Z0-9]/g, "");
-    const code = codeRaw.slice(0, 8);
-    doc.approvalCode = code;
-    doc.approvedAt = new Date().toISOString();
-    res.json({ ok:true, approvalCode: code });
+    res.json({ ok:true });
+  });
+
+  app.post("/admin/docs/:id/reject", auth, (req,res)=>{
+    const id = Number(req.params.id);
+    const doc = docs.find(d=>d.id===id);
+    if(!doc) return res.status(404).json({ ok:false, error:"Não encontrado" });
+    doc.status = "rejeitado";
+    res.json({ ok:true });
   });
 
 // ==================== PACIENTE: Autenticação (CPF+senha) e Histórico ====================
@@ -322,13 +323,6 @@ app.post("/patient/consultas", patientAuth, (req,res)=>{
   res.json({ ok:true, id });
 });
 
-
-// Documentos do paciente autenticado
-app.get("/patient/docs", patientAuth, (req,res)=>{
-  const clean = (s)=> String(s||"").replace(/\D+/g,"");
-  const my = docs.filter(d=> clean(d.pacienteCPF) === clean(req.patientCPF));
-  res.json({ ok:true, items: my });
-});
 // Histórico do paciente autenticado
 app.get("/patient/history", patientAuth, (req,res)=>{
   const history = loadHistory().filter(h=>h.cpf===req.patientCPF).sort((a,b)=> (a.createdAt<b.createdAt?1:-1));
