@@ -1,0 +1,934 @@
+{
+  "Clínico Geral": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina de Família e Comunidade": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Pediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Neonatologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Geriatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Ginecologista/Obstetra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Urologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Cardiologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Cardiopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Endocrinologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Endocrinopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Ortopedista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Reumatologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Reumatopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Dermatologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?",
+      "Pode enviar uma foto nítida da lesão com boa luz e foco?"
+    ]
+  },
+  "Psiquiatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Psicólogo": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Neurologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Neuropediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Otorrinolaringologista (Otorrino)": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Otorrino Pediátrico": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Oftalmologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Mastologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Proctologista (Coloproctologia)": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Gastroenterologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Hepatologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Nefrologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Nefropediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Pneumologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Pneumopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Hematologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Infectologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Infectopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Alergologista/Imunologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Angiologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Otoneurologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Oncologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina Nuclear": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Patologista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Genetista Médico": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina do Trabalho": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina Esportiva": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina da Dor": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Medicina Paliativa": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Nutrólogo": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Nutricionista": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Fonoaudiólogo": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Fisioterapeuta": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Fisiatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Otorrino Foniatria": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Ortopedia Pediátrica": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Reabilitação Vestibular": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Dermatopediatra": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?",
+      "Envie uma foto da lesão (se possível) sob boa iluminação."
+    ]
+  },
+  "Endodontista/Odontologia": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Ortopedia Coluna": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Hepatopancreatobiliar (HPB)": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Obstetrícia Fetal/Medicina Fetal": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Fertilidade/Reprodução Assistida": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Otologia": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Rinologia": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Laringologia": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  },
+  "Ortomolecular": {
+    "objetivos": [
+      "Confirmar queixa principal e duração",
+      "Identificar sinais de alarme",
+      "Contextualizar antecedentes e medicamentos",
+      "Definir necessidade de exame físico presencial",
+      "Pedir exames ou imagens úteis conforme protocolo",
+      "Reforçar orientações e retorno/encaminhamento"
+    ],
+    "perguntas_iniciais": [
+      "Quais são os sintomas principais e há quanto tempo?",
+      "Algo piorou nas últimas 24–48h?",
+      "Usa algum remédio regularmente? Qual?"
+    ]
+  }
+}
